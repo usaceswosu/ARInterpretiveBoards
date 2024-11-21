@@ -1,0 +1,30 @@
+package com.example.myapplication
+
+import android.annotation.SuppressLint
+import android.os.Bundle
+import android.webkit.WebView
+import androidx.activity.ComponentActivity
+
+
+class MainActivity : ComponentActivity() {
+    @SuppressLint("SetJavaScriptEnabled")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.layout)
+
+        // Find WebView by ID
+        val webView: WebView = findViewById(R.id.webview)
+
+        // Enable JavaScript (optional)
+        webView.settings.javaScriptEnabled = true
+        WebView.setWebContentsDebuggingEnabled(true)
+        webView.loadUrl("file:///android_asset/usace.html")
+
+
+        // webView.loadUrl("https://example.com")
+    }
+}
+
+
+
+
