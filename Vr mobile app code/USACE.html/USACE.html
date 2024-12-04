@@ -2,87 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="CSS/StyleSheet.CSS">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: grey;
-            border: 3px solid black;
-        }
-        header {
-            display: flex;
-            align-items: center;
-            background-color: darkred;
-            border: 3px solid black
-            padding: 20px;
-        }
-        header img {
-            width: 150px;
-            height: auto;
-        }
-        .container {
-            display: flex;
-        }
-        .sidebar {
-            width: 250px;
-            background-color: goldenrod;
-            padding: 20px;
-            height: 100vh;
-        }
-        .sidebar h2 {
-            font-size: 45px;
-            margin-bottom: 20px;
-            border: black;
-            color: white
-        }
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .sidebar ul li {
-            margin-bottom: 10px;
-        }
-        .sidebar ul li a {
-            text-decoration: none;
-            color: black;
-            word-spacing: 0px;
-            font-size: 35px;
-        }
-        .content {
-            flex-grow: 1;
-            padding: 20px;
-            color: white;
-        }
-        .video-container {
-            text-align: center;
-        }
-        .video {
-            border: 5px solid black;
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto 20px auto;
-            height: 562.5px;
-        }
-        .video-tabs {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-        .video-tabs button {
-            background-color: darkred;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 25px;
-            cursor: pointer;
-            font-size: 34px;
-        }
-        .video-tabs button:hover {
-            background-color: ;
-        }
-    </style>
 </head>
 <body>
 
@@ -108,9 +30,11 @@
 
         <div class="content">
             <div class="video-container">
+                <div class="video-player">
                 <iframe class="video" id="mainVideo" src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
                         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen></iframe>
+                    </div>
 
                 <div class="video-tabs">
                     <button onclick="changeVideo('https://www.youtube.com/embed/e5UOtzRybzU')">Lake</button>
@@ -123,7 +47,27 @@
 
     <script>
         function changeVideo(videoUrl) {
-            document.getElementById('mainVideo').src = videoUrl;
+            video=document.getElementById('mainVideo')
+            // Add fade-out class
+            video.classList.add('fade-out-video');
+
+            // Wait for fade-out transition
+            setTimeout(() => {
+                // Change source
+                video.src = videoUrl;
+
+                // Remove fade-out, add fade-in
+                
+            setTimeout(() => {    
+                video.classList.remove('fade-out-video');
+                video.classList.add('fade-in-video');
+            
+                // Remove fade-in after transition
+                setTimeout(() => {
+                    video.classList.remove('fade-in-video');
+                }, 500);
+            }, 500);
+            }, 750);
         }
     </script>
 

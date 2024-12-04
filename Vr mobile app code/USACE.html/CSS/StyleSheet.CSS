@@ -1,0 +1,103 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: grey;
+    border: 3px solid black;
+}
+header {
+    display: flex;
+    align-items: center;
+    background-color: darkred;
+    border: 3px solid black
+    padding: 20px;
+}
+header img {
+    width: 150px;
+    height: auto;
+}
+.container {
+    display: flex;
+    animation: fadeIn 1.5s;
+}
+.sidebar {
+    width: 250px;
+    background-color: goldenrod;
+    padding: 20px;
+    height: 100vh;
+}
+.sidebar h2 {
+    font-size: 45px;
+    margin-bottom: 20px;
+    border: black;
+    color: white
+}
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+.sidebar ul li a {
+    text-decoration: none;
+    color: black;
+    word-spacing: 0px;
+    font-size: 35px;
+}
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    color: white;
+}
+.video-container {
+    text-align: center;
+}
+.video-player {
+    background-color: black;
+    width: 100%;
+    max-width: 1015px;
+    margin: 0 auto 20px auto;
+    height: 100%;
+    max-height: 575px;
+}
+.video {
+    border: 5px solid black;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 20px auto;
+    height: 562.5px;
+}
+.video-tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.video-tabs button {
+    background-color: darkred;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 25px;
+    cursor: pointer;
+    font-size: 34px;
+}
+.video-tabs button:hover {
+    background-color: ;
+}
+/* Fade effect classes */
+.fade-out-video {
+    animation: fadeOut 0.75s;
+    opacity: 0;
+}
+@keyframes fadeOut{
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+}
+.fade-in-video {
+    animation: fadeIn 0.75s;
+}
+@keyframes fadeIn{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
