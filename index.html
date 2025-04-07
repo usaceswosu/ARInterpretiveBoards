@@ -80,9 +80,18 @@
                     autoplay
                     playsinline
                 ></video>
-                <img 
-                    id="bargeBoard" 
-                    src="assets/barge_board_cropped.jpg">
+                <video 
+                    id="staircase" 
+                    class="video"
+                    src="assets/Staircase_video_with_voiceover.mp4"
+                    preload="auto"
+                    response-type="arraybuffer"
+                    loop
+                    crossorigin
+                    webkit-playsinline
+                    autoplay
+                    playsinline
+                ></video>
             </a-assets>
 
             <a-marker
@@ -144,14 +153,14 @@
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerC"
             >
-                <a-image
-                    src="#bargeBoard"
+                <a-video
+                    src="#staircase"
                     scale="1 1 1"
                     position="0 0.1 0"
                     rotation="-90 0 0"
                     class="clickable"
                     gesture-handler
-                ></a-image>
+                ></a-video>
             </a-marker>
             <a-entity camera></a-entity>
         </a-scene>
