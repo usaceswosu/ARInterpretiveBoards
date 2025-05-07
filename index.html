@@ -54,6 +54,22 @@
                     }.bind(this));
                 },
             });
+            AFRAME.registerComponent('videohandler4', {
+                init: function () {
+                    var marker = this.el;
+                    this.vid = document.querySelector("#barges");
+
+                    marker.addEventListener('markerFound', function () {
+                        this.toggle = true;
+                        this.vid.play();
+                    }.bind(this));
+
+                    marker.addEventListener('markerLost', function () {
+                        this.toggle = false;
+                        this.vid.pause();
+                    }.bind(this));
+                },
+            });
         function initVideo() { 
             var vid = document.querySelector("#vid");
             vid.play();
@@ -100,6 +116,18 @@
                     id="staircase" 
                     class="video"
                     src="assets/Staircase Of Water Finished Video.mp4"
+                    preload="auto"
+                    response-type="arraybuffer"
+                    loop
+                    crossorigin
+                    webkit-playsinline
+                    autoplay
+                    playsinline
+                ></video>
+                <video 
+                    id="barges" 
+                    class="video"
+                    src="assets/Barge Board With Audio.mp4"
                     preload="auto"
                     response-type="arraybuffer"
                     loop
@@ -172,6 +200,29 @@
             >
                 <a-video
                     src="#staircase"
+                    scale="1 1 1"
+                    position="0 0.1 0"
+                    rotation="-90 0 0"
+                    class="clickable"
+                    gesture-handler
+                ></a-video>
+            </a-marker>
+            <a-marker
+                type="pattern"
+                preset="custom"
+                url="assets/hiro.patt"
+                videohandler4
+                smooth="true"
+                smoothCount="10"
+                smoothTolerance="0.01"
+                smoothThreshold="5"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerD"
+            >
+                <a-video
+                    src="#barges"
                     scale="1 1 1"
                     position="0 0.1 0"
                     rotation="-90 0 0"
